@@ -34,3 +34,7 @@ tasks:
   t3:
     cmds:
       - mojo t3_simd.mojo
+
+  t4:
+    cmds:
+      - mojo t4_scalars.mojo
