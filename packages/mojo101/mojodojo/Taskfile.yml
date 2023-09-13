@@ -42,3 +42,7 @@ tasks:
   t5:
     cmds:
       - mojo t5_strings.mojo
+
+  t6:
+    cmds:
+      - mojo t6_builtins.mojo

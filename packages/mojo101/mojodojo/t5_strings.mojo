@@ -36,6 +36,23 @@ def try_vector():
     print(vec_str_ref)
     # print(vec)
 
+    vec[1] = 78
+    print(vec_str_ref)
+
+    # todo x: 深拷贝 deep copy
+    let vec_str = String(vec_str_ref)
+    print("vector str:", vec_str)
+
+    vec[0] = 65
+    vec[1] = 65
+    print(vec_str) # todo x: 并不会改变
+
+    var lit = "This is my StringLiteral"
+    print(lit)
+
+    emoji = String("🔥😀")
+    print("fire:", emoji[0:4])
+    print("smiley:", emoji[4:8])
 
 def main():
     try_string()
