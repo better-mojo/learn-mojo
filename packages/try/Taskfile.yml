@@ -25,5 +25,5 @@ tasks:
 
   t1:
     cmds:
-      - mojo t1.mojo
+      - mojo t1_pyobj.mojo
     dir: official

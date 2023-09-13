@@ -25,8 +25,12 @@ tasks:
 
   t1:
     cmds:
-      - mojo t1.mojo
+      - mojo t1_pyobj.mojo
 
   t2:
     cmds:
-      - mojo t2.mojo
+      - mojo t2_mojo.mojo
+
+  t3:
+    cmds:
+      - mojo t3_simd.mojo

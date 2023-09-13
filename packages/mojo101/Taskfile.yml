@@ -30,10 +30,10 @@ tasks:
 
   t1:
     cmds:
-      - mojo t1.mojo
+      - mojo t1_pyobj.mojo
     dir: official
 
   t2:
     cmds:
-      - mojo t2.mojo
+      - mojo t2_mojo.mojo
     dir: official
