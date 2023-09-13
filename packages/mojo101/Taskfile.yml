@@ -27,3 +27,8 @@ tasks:
     cmds:
       - mojo t1.mojo
     dir: official
+
+  t2:
+    cmds:
+      - mojo t2.mojo
+    dir: official
