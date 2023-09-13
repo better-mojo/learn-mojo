@@ -33,7 +33,20 @@ def try_builtins():
     let original = String("MojoDojo")
     print(original[0:4])
 
+    let slice_expression = slice(0, 4)
+    print(original[slice_expression])
+
+    print(original[0:4:2])
+
+    let slice_expression2 = slice(0, 4, 2)
+    print(original[slice_expression2])
+
+
+def return_error():
+    raise Error("This returns an Error type")
+
 
 def main():
     try_builtins()
 
+    # return_error() # todo x: 抛出异常

@@ -46,3 +46,7 @@ tasks:
   t6:
     cmds:
       - mojo t6_builtins.mojo
+
+  t7:
+    cmds:
+      - mojo t7_exercises.mojo
