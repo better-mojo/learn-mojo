@@ -1,10 +1,5 @@
 version: "3"
 
-includes:
-  dojo:
-    taskfile: mojodojo/
-    dir: mojodojo/
-    optional: true
 
 
 #
@@ -31,9 +26,7 @@ tasks:
   t1:
     cmds:
       - mojo t1.mojo
-    dir: official
 
   t2:
     cmds:
       - mojo t2.mojo
-    dir: official
