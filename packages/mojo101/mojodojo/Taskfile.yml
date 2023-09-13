@@ -38,3 +38,7 @@ tasks:
   t4:
     cmds:
       - mojo t4_scalars.mojo
+
+  t5:
+    cmds:
+      - mojo t5_strings.mojo
