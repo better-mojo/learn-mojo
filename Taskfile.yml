@@ -11,6 +11,13 @@ includes:
     dir: ~/.local/task/better-sre/config # global path
     optional: true # safeguard, if not found, no error
 
+
+  mojo:
+    taskfile: packages/mojo101
+    dir: packages/mojo101
+    optional: true
+
+
   try:
     taskfile: packages/try
     dir: packages/try
@@ -50,6 +57,10 @@ tasks:
       - brew install go-task/tap/go-task
       - brew install protobuf
 
+  install:linux:
+    cmds:
+      - sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
+      - task --version
 
   new:py:app:
     cmds:
@@ -202,8 +213,8 @@ tasks:
     cmds:
       #      - pip install --no-binary :all: grpcio --ignore-installed
       #      - pip install --no-binary :all: grpcio-tools --ignore-installed
-      - pip install --no-binary :all: grpcio==1.41.1 --ignore-installed
-      - pip install --no-binary :all: grpcio-tools==1.41.1 --ignore-installed
+      - pip install --no-binary ':all:' grpcio==1.41.1 --ignore-installed
+      - pip install --no-binary ':all:' grpcio-tools==1.41.1 --ignore-installed
       - pip list | grep grpc
 
 
