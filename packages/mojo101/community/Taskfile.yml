@@ -1,15 +1,5 @@
 version: "3"
 
-includes:
-  cm:
-    taskfile: community/
-    dir: community/
-    optional: true
-
-  dojo:
-    taskfile: mojodojo/
-    dir: mojodojo/
-    optional: true
 
 
 #
@@ -33,17 +23,6 @@ tasks:
     cmds:
       - echo 'hello'
 
-  install:
-    cmds:
-      - mojo install.mojo
-    dir: install
-
   t1:
     cmds:
-      - mojo t1_pyobj.mojo
-    dir: official
-
-  t2:
-    cmds:
-      - mojo t2_mojo.mojo
-    dir: official
+      - mojo t1.mojo
