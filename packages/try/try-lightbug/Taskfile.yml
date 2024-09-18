@@ -7,12 +7,22 @@ tasks:
     cmds:
       - echo 'hello'
 
+  venv:
+    cmds:
+      - magic shell
+      - mojo --version
+    ignore_error: true
+
   r:
     aliases: [ 'run', ]
     cmds:
       - |
-        mojo src/run run.mojo
+        mojo run run.mojo
+    dir: "src/"
 
+  r2:
+    cmds:
+      - .magic/envs/default/bin/mojo run src/run.mojo
 
   pkg:
     aliases: [ 'pm', 'magic' ]
