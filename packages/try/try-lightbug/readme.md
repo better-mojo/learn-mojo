@@ -1,16 +1,24 @@
-
-
-# 
+#  
 
 ## Quickstart
 
-
 ```bash
 
-# add package
+# add mojo package
 task t:tl:pm -- add lightbug_http
 
-# run: 
+# install mojo package
+task t:tl:pm -- install
+
+# activate mojo virtualenv
+task t:tl:venv
+
+# run http server: 
 task t:tl:run
 
+# deactivate mojo virtualenv
+exit
+
 ```
+
+- http web: http://127.0.0.1:8080
