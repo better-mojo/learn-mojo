@@ -13,8 +13,8 @@ includes:
 
 
   mojo:
-    taskfile: packages/mojo101
-    dir: packages/mojo101
+    taskfile: packages/mojo-101
+    dir: packages/mojo-101
     optional: true
 
 
@@ -218,30 +218,30 @@ tasks:
       - pip list | grep grpc
 
 
-  ################################################################################
+  ##################################################################################################
+
+  quick:
+    aliases: [ 'q' ]
+    cmds:
+      - task: cc
+      - task: push
+
+  cc:
+    cmds:
+      - task: commit
+      - task: commit
+
+  commit:
+    aliases: [ 'c' ]
+    cmds:
+      - git add .
+      - git commit -m "update"
+    ignore_error: true
 
   pull:
     cmds:
       - git config pull.rebase false
       - git pull origin main
-
-  fetch:
-    cmds:
-      - git fetch
-      - git rebase
-      - git merge origin/main
-
-  quick:
-    cmds:
-      - task: commit
-  #      - task: pull
-  #      - task: push
-
-  commit:
-    cmds:
-      - git add .
-      - |
-        git commit -m 'chore: update' --no-verify
 
   push:
     cmds:
