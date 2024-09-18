@@ -10,9 +10,9 @@ tasks:
   r:
     aliases: [ 'run', ]
     cmds:
-      - magic shell
-      - mojo run run.mojo
-    dir: src/
+      - |
+        mojo src/run run.mojo
+
 
   pkg:
     aliases: [ 'pm', 'magic' ]

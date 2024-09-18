@@ -60,6 +60,11 @@ tasks:
     cmds:
       - curl -ssL https://magic.modular.com/70e02269-abfd-4ed6-aac8-fc2b7d61b954 | bash
 
+  # activate mojo venv:
+  venv:
+    cmds:
+      - magic shell
+
 
 
   ################################################################################
