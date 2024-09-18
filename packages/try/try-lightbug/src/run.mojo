@@ -1,5 +1,6 @@
 from lightbug_http import *
 
+
 @value
 struct Printer(HTTPService):
     fn func(self, req: HTTPRequest) raises -> HTTPResponse:
@@ -13,6 +14,7 @@ struct Printer(HTTPService):
 
         var body = "hello world, from mojo!!!"
         return OK(body)
+
 
 fn main() raises:
     var server = SysServer()
