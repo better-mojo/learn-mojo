@@ -1,20 +1,11 @@
 version: "3"
 
-
-
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
-
-# global env:
-env:
-  ENV1: testing
-
-# env file:
-#dotenv:
-#  - .env
+includes:
+  try-lightbug:
+    aliases: [ 'tl', ]
+    taskfile: try-lightbug/
+    dir: try-lightbug/
+    optional: true
 
 ################################################################################################
 
@@ -22,8 +13,3 @@ tasks:
   default:
     cmds:
       - echo 'hello'
-
-  t1:
-    cmds:
-      - mojo t1_pyobj.mojo
-    dir: official

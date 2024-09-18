@@ -4,21 +4,14 @@ version: "3"
 # sub namespace: https://taskfile.dev/#/usage?id=including-other-taskfiles
 #
 includes:
-  # way: global path
-  #   - https://github.com/better-sre/config
-  std:
-    taskfile: ~/.local/task/better-sre/config/Taskfile.yml # TODO: please create `~/.task/` first before use
-    dir: ~/.local/task/better-sre/config # global path
-    optional: true # safeguard, if not found, no error
-
-
   mojo:
+    aliases: [ 'm101', ]
     taskfile: packages/mojo-101
     dir: packages/mojo-101
     optional: true
 
-
   try:
+    aliases: [ 't', ]
     taskfile: packages/try
     dir: packages/try
     optional: true
@@ -51,39 +44,34 @@ tasks:
       - task: install
       - task: install:pkg
 
+
+  setup:
+    cmds:
+      - echo "setup"
+      - task: install
+
   install:
+    aliases: [ 'i' ]
     cmds:
-      - brew install cookiecutter
-      - brew install go-task/tap/go-task
-      - brew install protobuf
+      - task: install:magic
 
-  install:linux:
+  install:magic:
+    aliases: [ 'ipm', 'ipkg' ]
     cmds:
-      - sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b ~/.local/bin
-      - task --version
+      - curl -ssL https://magic.modular.com/70e02269-abfd-4ed6-aac8-fc2b7d61b954 | bash
 
-  new:py:app:
-    cmds:
-      - poetry workspace new --name=${NEW_PROJECT_NAME} ${WORKSPACE}${NEW_PROJECT_NAME}
 
-  new:rs:app:
-    cmds:
-      - cd ${WORKSPACE}; cargo new ${NEW_PROJECT_NAME}
-
-  init:rs:
-    cmds:
-      - cargo init
 
   ################################################################################
 
 
-  up:infra:
+  new:
+    aliases: [ 'n' ]
     cmds:
-      - task: std:docker:local:up:mysql
-      - task: std:docker:local:up:redis
-      - task: std:docker:local:up:consul:v3 # 服务发现/服务注册
-      - task: std:docker:local:up:jaeger # 链路追踪 # https://go-kratos.dev/docs/component/middleware/tracing
-  #      - task: std:docker:local:up:prometheus
+      - magic init {{.CLI_ARGS}} --format mojoproject
+    dir: 'packages/try'
+
+
 
   ################################################################################
 
@@ -91,131 +79,8 @@ tasks:
     cmds:
       - tokei # 代码统计: https://github.com/XAMPPRocky/tokei
 
-  # 项目全局 + 批量生成:
-  proto:gen:all:
-    cmds:
-      - |
-        find ./app -iname "*.proto" -exec \
-          protoc --proto_path=. \
-            --proto_path=$(pwd)/pkg/x \
-            --go_out=paths=source_relative:. \
-            --go-http_out=paths=source_relative:. \
-            --go-grpc_out=paths=source_relative:. \
-            --validate_out=paths=source_relative,lang=go:. \
-            --openapi_out==paths=source_relative:. \
-            {} \;
 
 
-  ################################################################################
-
-  setup:
-    cmds:
-      - task: setup:py
-
-  setup:py:
-    cmds:
-      - pyenv install 3.10.6
-      - pyenv versions
-      - pyenv virtualenv 3.10.6 py310-base
-      - pyenv local py310-base
-      - pip install --upgrade pip
-      - task: setup:py:tools
-
-
-  # ref: https://github.com/hhstore/blog/issues/17
-  list:py:
-    cmds:
-      - pyenv install --list | grep 3.10
-
-  setup:py:tools:
-    cmds:
-      - pip install pipx
-      - pipx install poetry
-      - poetry config virtualenvs.in-project true   # todo x: config with pyenv
-      - poetry config --list
-      #      - poetry config virtualenvs.create true
-      - pipx install bali-cli
-
-  install:py:
-    cmds:
-      - pip3 install -r requirements.txt
-      - pip3 install -r requirements-dev.txt
-
-
-  # activate venv
-  venv:
-    cmds:
-      - poetry shell
-
-  new:py:
-    cmds:
-      - |
-        cd ${NEW_APP_RELATIVE_PATH};
-        mkdir -p ${NEW_APP_NAME};
-        cd ${NEW_APP_NAME}/;
-        cookiecutter https://github.com/bali-framework/cookiecutter-bali.git -f
-
-  new:svc:
-    cmds:
-      - |
-        cd ${NEW_APP_RELATIVE_PATH};
-        mkdir -p ${NEW_APP_NAME};
-        cd ${NEW_APP_NAME}/;
-        bali add ${NEW_MODULE_NAME}
-
-
-  dep:add:all:
-    cmds:
-      - poetry add bali-core@^3.4.1
-      - poetry add grpcio@^1.50
-      - poetry add grpcio-tools@^1.50
-      - poetry add protobuf@^4.22.0
-      - poetry add grpcio-health-checking@^1.50
-      - poetry add typer@latest
-      - poetry add loguru@latest
-      - poetry add typing-extensions@latest
-      - poetry add tenacity@latest
-      - poetry add alembic@latest
-      - poetry add python-dotenv@latest
-      - poetry add fastapi@^0.88.0
-      - poetry add uvicorn@^0.20.0
-
-  dep:add:
-    cmds:
-      - poetry add uvloop@latest
-
-
-  dep:search:
-    cmds:
-      #      - poetry search requests
-      - poetry search drf
-
-  dep:update:
-    cmds:
-      - poetry update
-      - poetry update package
-
-  dep:install:
-    cmds:
-      - poetry install
-
-  dep:export:
-    cmds:
-      - poetry export --output requirements.txt
-
-  dep:show:
-    cmds:
-      - poetry show
-
-
-  # grpc
-  fix:m1:
-    cmds:
-      #      - pip install --no-binary :all: grpcio --ignore-installed
-      #      - pip install --no-binary :all: grpcio-tools --ignore-installed
-      - pip install --no-binary ':all:' grpcio==1.41.1 --ignore-installed
-      - pip install --no-binary ':all:' grpcio-tools==1.41.1 --ignore-installed
-      - pip list | grep grpc
 
 
   ##################################################################################################

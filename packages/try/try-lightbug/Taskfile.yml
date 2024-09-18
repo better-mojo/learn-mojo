@@ -1,21 +1,5 @@
 version: "3"
 
-
-
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
-
-# global env:
-env:
-  ENV1: testing
-
-# env file:
-#dotenv:
-#  - .env
-
 ################################################################################################
 
 tasks:
@@ -23,7 +7,14 @@ tasks:
     cmds:
       - echo 'hello'
 
-  t1:
+  r:
+    aliases: [ 'run', ]
     cmds:
       - magic shell
-      - mojo t1.mojo
+      - mojo run run.mojo
+    dir: src/
+
+  pkg:
+    aliases: [ 'pm', 'magic' ]
+    cmds:
+      - magic {{.CLI_ARGS}}
