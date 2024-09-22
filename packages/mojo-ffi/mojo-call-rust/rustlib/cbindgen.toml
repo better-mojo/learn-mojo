@@ -1,0 +1,8 @@
+[language]
+name = "C"
+
+[parse]
+include = ["src/lib.rs"]
+
+[exclude]
+#functions = ["implementation::*"]

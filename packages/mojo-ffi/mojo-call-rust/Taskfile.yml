@@ -11,11 +11,13 @@ tasks:
     cmds:
       - magic run mojo format -l 120 .
 
-  venv:
+  gen:rs:c:header:
+    aliases: ['gen']
     cmds:
-      - magic shell
-      - mojo --version
-    ignore_error: true
+#      - cbindgen --config cbindgen.toml --crate rustlib --output rustlib.h
+      - cargo build
+      - open target/
+    dir: rustlib/
 
   dev:
     aliases: [ 'd', ]
@@ -29,9 +31,6 @@ tasks:
         mojo run run.mojo
     dir: "src/"
 
-  r2:
-    cmds:
-      - .magic/envs/default/bin/mojo run src/run.mojo
 
   pkg:
     aliases: [ 'pm', 'magic' ]
