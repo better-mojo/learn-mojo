@@ -11,12 +11,16 @@ learn mojo
 | ✅ [mojo dojo 教程代码](./packages/mojo101/mojodojo) | ⭐️⭐️⭐️⭐️    |
 | ✅ [官方文档 + 代码](packages/mojo101/official)        | ⭐️⭐️⭐️      |
 
+### Mojo FFI
 
+| Project                                              | Description |
+|:-----------------------------------------------------|:------------|
+| ✅ [Mojo call C](packages/mojo-ffi/mojo-call-c)       | ⭐️⭐️⭐️⭐️    |
+| ✅ [Mojo call Rust](packages/mojo-ffi/mojo-call-rust) | ⭐️⭐️⭐️⭐️    |
 
 ## Awesome Mojo:
 
 - [Awesome Mojo🔥](https://github.com/mojicians/awesome-mojo)
-
 
 ## Mojo Manual
 

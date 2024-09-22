@@ -6,16 +6,25 @@
 - 先使用 [Rust cbindgen](https://crates.io/crates/cbindgen) 把 rust 项目生成 c header.
 - 然后 Mojo 使用 c abi 方式调用.
 
+> 步骤:
+
+1. 编写标准的 rust 项目, 为 [raw.rs](rustlib/src/raw.rs)
+2. 针对 `raw.rs`, 基于 `cbindgen`, 编写适配 C FFI 的 [wrapper.rs](rustlib/src/wrapper.rs),
+    - 少数方法需要修改, 大部分只是简单包一层.
+    - 分开 2 个文件, 是为了方便维护旧的 rust 项目, 做好隔离.
+3. 先编译 rust 项目为 C ABI 二进制库(cargo.toml 设置 `crate-type = ["cdylib"]`).
+4. 依次链接给 `Mojo/C` 调用, 二者具体使用方式略有不同.
+
 ## Quickstart:
 
 - 默认已经安装了 rust 和 mojo 开发环境.
 - 包括:
-    - rust: cargo/rustup
-    - mojo: magic(类似 cargo+rustup)
+    - rust: `cargo/rustup`
+    - mojo: `magic`(类似 cargo+rustup)
 
 ### Mojo call Rust:
 
-- 编译+运行:
+- 编译+运行:[Taskfile.yml](Taskfile.yml)
 
 ```bash
 
@@ -32,6 +41,7 @@ task ffi:mr:rm
 
 ### C call Rust:
 
+- 详细编译指令: [Taskfile.yml](Taskfile.yml)
 - 注意编译+链接 `rust 库`的路径参数.
 
 ```bash
