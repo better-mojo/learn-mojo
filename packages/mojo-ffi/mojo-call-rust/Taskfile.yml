@@ -12,12 +12,22 @@ tasks:
       - magic run mojo format -l 120 .
 
   gen:rs:c:header:
-    aliases: ['gen']
+    aliases: [ 'gen' ]
     cmds:
-#      - cbindgen --config cbindgen.toml --crate rustlib --output rustlib.h
-      - cargo build
+      #      - cbindgen --config cbindgen.toml --crate rustlib --output rustlib.h
+      - cargo build --release
       - open include/
     dir: rustlib/
+
+  run:c:
+    aliases: [ 'rc' ]
+    cmds:
+      - task: gen
+      - mkdir -p build/
+      - gcc -c src/main.c -I include -o build/main.o
+      - gcc build/main.o -o build/main -L rustlib/target/debug -l rustlib   # 注意相对路径
+      - ./build/main
+    ignore_error: true
 
   dev:
     aliases: [ 'd', ]

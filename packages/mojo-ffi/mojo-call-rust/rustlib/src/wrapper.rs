@@ -19,12 +19,15 @@ pub extern "C" fn add(left: u64, right: u64) -> u64 {
 
 
 #[no_mangle]
-pub extern "C" fn array_max(input: &[f64]) -> f64 {
+pub extern "C" fn array_max(data: *const f64, len: usize) -> f64 {
+    // TODO X: 针对 C 不安全的数据类型, 作转换+适配
+    let input = unsafe { std::slice::from_raw_parts(data, len) };
     raw::array_max(input)
 }
 
 
 #[no_mangle]
-pub extern "C" fn array_sum(input: &[f64]) -> f64 {
+pub extern "C" fn array_sum(data: *const f64, len: usize) -> f64 {
+    let input = unsafe { std::slice::from_raw_parts(data, len) };
     raw::array_sum(input)
 }
