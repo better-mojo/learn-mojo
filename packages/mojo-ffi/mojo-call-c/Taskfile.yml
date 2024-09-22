@@ -11,10 +11,26 @@ tasks:
     cmds:
       - magic run mojo format -l 120 .
 
-  venv:
+
+  build:c:
+    aliases: [ 'bc', ]
     cmds:
-      - magic shell
-      - mojo --version
+      - mkdir -p build/
+      - cc -shared -fPIC src/clib.c -o build/clib.so
+      - cc -c src/clib.c -O -o build/clib.o
+    ignore_error: true
+
+  build:
+    aliases: [ 'b' ]
+    cmds:
+      - task: bc # build c lib first
+      - magic run mojo src/main.mojo
+
+
+  clean:
+    aliases: [ 'cl', 'del' ]
+    cmds:
+      - rm -rf build/
     ignore_error: true
 
   dev:

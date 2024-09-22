@@ -1,0 +1,28 @@
+version: "3"
+
+includes:
+  c-call-mojo:
+    aliases: [ 'cm', ]
+    taskfile: c-call-mojo/
+    dir: c-call-mojo/
+    optional: true
+
+  mojo-call-c:
+    aliases: [ 'mc', ]
+    taskfile: mojo-call-c/
+    dir: mojo-call-c/
+    optional: true
+
+  mojo-call-rust:
+    aliases: [ 'mr', ]
+    taskfile: mojo-call-rust/
+    dir: mojo-call-rust/
+    optional: true
+
+
+################################################################################################
+
+tasks:
+  default:
+    cmds:
+      - echo 'hello'
