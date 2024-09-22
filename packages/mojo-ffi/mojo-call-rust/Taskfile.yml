@@ -16,7 +16,7 @@ tasks:
     cmds:
 #      - cbindgen --config cbindgen.toml --crate rustlib --output rustlib.h
       - cargo build
-      - open target/
+      - open include/
     dir: rustlib/
 
   dev:

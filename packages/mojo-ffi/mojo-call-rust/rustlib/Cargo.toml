@@ -3,6 +3,13 @@ name = "rustlib"
 version = "0.1.0"
 edition = "2021"
 
+
+
+[lib]
+name = "rustlib"
+crate-type = ["cdylib"]
+
+
 [build-dependencies]
 cbindgen = "0.27.0"
 

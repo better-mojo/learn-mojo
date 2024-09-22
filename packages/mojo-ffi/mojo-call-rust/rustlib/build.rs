@@ -13,5 +13,5 @@ fn main() {
     // generate c header
     cbindgen::generate_with_config(&crate_dir, config)
         .unwrap()
-        .write_to_file("target/rustlib.h");
+        .write_to_file("include/rustlib.h"); // gen file
 }
