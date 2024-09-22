@@ -1,0 +1,39 @@
+version: "3"
+
+################################################################################################
+
+tasks:
+  default:
+    cmds:
+      - echo 'hello'
+
+  fmt:
+    cmds:
+      - magic run mojo format -l 120 .
+
+  venv:
+    cmds:
+      - magic shell
+      - mojo --version
+    ignore_error: true
+
+  dev:
+    aliases: [ 'd', ]
+    cmds:
+      - magic run mojo src/run.mojo
+
+  r:
+    aliases: [ 'run', ]
+    cmds:
+      - |
+        mojo run run.mojo
+    dir: "src/"
+
+  r2:
+    cmds:
+      - .magic/envs/default/bin/mojo run src/run.mojo
+
+  pkg:
+    aliases: [ 'pm', 'magic' ]
+    cmds:
+      - magic {{.CLI_ARGS}}
