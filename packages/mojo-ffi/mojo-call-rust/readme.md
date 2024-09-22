@@ -8,8 +8,31 @@
 
 ## Quickstart:
 
-- C call Rust:
+- 默认已经安装了 rust 和 mojo 开发环境.
+- 包括:
+    - rust: cargo/rustup
+    - mojo: magic(类似 cargo+rustup)
 
+### Mojo call Rust:
+
+- 编译+运行:
+
+```bash
+
+# 快速运行: 
+cd repo-root-dir/
+task ffi:mr:rm
+  
+
+```
+
+- 说明: 代码内链接 rust 库, 路径是 `rustlib/target/debug/librustlib.dylib`.
+    - 这是执行 `cargo build --release` 后生成的二进制文件.
+    - 也可以根据需要指定 `rustlib/target/release/librustlib.dylib`
+
+### C call Rust:
+
+- 注意编译+链接 `rust 库`的路径参数.
 
 ```bash
 # 快速编译+运行:
@@ -26,8 +49,6 @@ task ffi:mr:rc
 - ./build/main
 
 ```
-
-
 
 ## FFI FAQ:
 

@@ -6,7 +6,7 @@ from collections import List
 
 def main():
     #
-    # load the shared library
+    # TODO X: load the shared library, 注意这里的 rust 编译结果路径!!!
     #
     h = ffi.DLHandle("rustlib/target/debug/librustlib.dylib")
 
