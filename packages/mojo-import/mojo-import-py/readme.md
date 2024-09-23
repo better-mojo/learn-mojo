@@ -10,11 +10,11 @@
 
 ### 导入 Python 本地文件
 
-- ✅ 导入 python 本地文件
+- ✅ 导入 python 本地文件: [import-local-py](import-local-py)
 
 ### 导入 Python 第三方库(numpy)
 
-- ✅ 导入 python 第三方库, 以 `numpy` 为例.
+- ✅ 导入 python 第三方库, 以 `numpy` 为例: [import-numpy](import-numpy)
 
 ```ruby
 

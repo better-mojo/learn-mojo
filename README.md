@@ -13,10 +13,21 @@ learn mojo
 
 ### Mojo FFI
 
+- Mojo 通过 `FFI` binding `C/Rust` 库, 复用 `C/Rust` 生态.
+
 | Project                                              | Description |
 |:-----------------------------------------------------|:------------|
 | ✅ [Mojo call C](packages/mojo-ffi/mojo-call-c)       | ⭐️⭐️⭐️⭐️    |
 | ✅ [Mojo call Rust](packages/mojo-ffi/mojo-call-rust) | ⭐️⭐️⭐️⭐️    |
+
+### Mojo Import (Python StdLib + 3rdLib)
+
+- Mojo 可以直接导入 Python 模块(`标准库+第三方库`), 无痛复用 Python 生态.
+
+| Project                                                                                  | Description |
+|:-----------------------------------------------------------------------------------------|:------------|
+| ✅ [Mojo import Python 3rdLib](packages/mojo-import/mojo-import-py/import-numpy)          | ⭐️⭐️        |
+| ✅ [Mojo import Python Local Module](packages/mojo-import/mojo-import-py/import-local-py) | ⭐️⭐️️       |
 
 ## Awesome Mojo:
 
