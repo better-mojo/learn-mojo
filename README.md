@@ -4,14 +4,16 @@ learn mojo
 
 ## Projects:
 
-- mojo 基础练习代码
+### 🔥 Mojo 101
+
+- mojo 基础练习, 包含语法特性练习代码.
 
 | Project                                         | Description |
 |:------------------------------------------------|:------------|
 | ✅ [mojo dojo 教程代码](./packages/mojo101/mojodojo) | ⭐️⭐️⭐️⭐️    |
 | ✅ [官方文档 + 代码](packages/mojo101/official)        | ⭐️⭐️⭐️      |
 
-### Mojo FFI
+### 🔥 Mojo FFI
 
 - Mojo 通过 `FFI` binding `C/Rust` 库, 复用 `C/Rust` 生态.
 
@@ -20,7 +22,7 @@ learn mojo
 | ✅ [Mojo call C](packages/mojo-ffi/mojo-call-c)       | ⭐️⭐️⭐️⭐️    |
 | ✅ [Mojo call Rust](packages/mojo-ffi/mojo-call-rust) | ⭐️⭐️⭐️⭐️    |
 
-### Mojo Import (Python StdLib + 3rdLib)
+### 🔥 Mojo Import (Python StdLib + 3rdLib)
 
 - Mojo 可以直接导入 Python 模块(`标准库+第三方库`), 无痛复用 Python 生态.
 
@@ -45,7 +47,7 @@ mojo 24.5.0 (e8aacb95)
 
 ```
 
-### Install:
+### Install Magic & Mojo:
 
 - ✅ [Install Magic](https://docs.modular.com/mojo/manual/get-started): Mojo 包管理工具, 基于 [Pixi - Conda, Python 包管理工具](https://github.com/prefix-dev/pixi) 实现.
 
