@@ -3,14 +3,9 @@ version: "3"
 ################################################################################################
 
 tasks:
-  default:
-    cmds:
-      - echo 'hello'
-
   fmt:
     cmds:
       - magic run mojo format -l 120 .
-
 
   build:c:
     aliases: [ 'bc', ]
@@ -26,28 +21,11 @@ tasks:
       - task: bc # build c lib first
       - magic run mojo src/main.mojo
 
-
   clean:
     aliases: [ 'cl', 'del' ]
     cmds:
       - rm -rf build/
     ignore_error: true
-
-  dev:
-    aliases: [ 'd', ]
-    cmds:
-      - magic run mojo src/run.mojo
-
-  r:
-    aliases: [ 'run', ]
-    cmds:
-      - |
-        mojo run run.mojo
-    dir: "src/"
-
-  r2:
-    cmds:
-      - .magic/envs/default/bin/mojo run src/run.mojo
 
   pkg:
     aliases: [ 'pm', 'magic' ]
