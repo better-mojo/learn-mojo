@@ -2,10 +2,10 @@
 
 ## quickstart
 
-### Mojo call C 动态库
+### 🔥Mojo call C 动态库
 
-- 使用 Mojo 调用 C 动态库(`build/clib.so`)的方法.
-- [main.mojo](./src/main.mojo)
+- ✅ 使用 Mojo 调用 C 动态库(`build/clib.so`)的方法.
+- ✅ [main.mojo](./src/main.mojo)
 
 ```ruby
 
@@ -14,10 +14,10 @@ task ffi:mc:b
 
 ```
 
-### Mojo call C 静态库
+### 🔥Mojo call C 静态库
 
-- 使用 Mojo 调用 C 静态库(`build/libclib.a`)的方法.
-- [main2.mojo](./src/main2.mojo)
+- ✅ 使用 Mojo 调用 C 静态库(`build/libclib.a`)的方法.
+- ✅ [main2.mojo](./src/main2.mojo)
 
 ```ruby
 
