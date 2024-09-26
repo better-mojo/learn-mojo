@@ -1,0 +1,36 @@
+version: "3"
+
+################################################################################################
+
+tasks:
+  fmt:
+    cmds:
+      - magic run mojo format -l 120 .
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - magic run mojo src/main.mojo
+
+
+  run:mojo:
+    aliases: [ 'rm' ]
+    cmds:
+      - task: gen
+      - mkdir -p build/
+      - magic run mojo src/main.mojo
+
+  run:c:
+    aliases: [ 'rc' ]
+    cmds:
+      - task: gen
+      - mkdir -p build/
+      - gcc -c src/main.c -I include -o build/main.o
+      - gcc build/main.o -o build/main -L rustlib/target/debug -l rustlib   # 注意相对路径
+      - ./build/main
+    ignore_error: true
+
+  pkg:
+    aliases: [ 'pm', 'magic' ]
+    cmds:
+      - magic {{.CLI_ARGS}}

@@ -34,10 +34,10 @@ learn mojo
 
 - Mojo 可以直接导入 Python 模块(`标准库+第三方库`), 无痛复用 Python 生态.
 
-| Project                                                                                  | Description |
-|:-----------------------------------------------------------------------------------------|:------------|
-| ✅ [Mojo import Python 3rdLib](packages/mojo-import/mojo-import-py/import-numpy)          | ⭐️⭐️        |
-| ✅ [Mojo import Python Local Module](packages/mojo-import/mojo-import-py/import-local-py) | ⭐️⭐️️       |
+| Project                                                                             | Description |
+|:------------------------------------------------------------------------------------|:------------|
+| ✅ [Mojo import Python 3rdLib](packages/mojo-import/import-py/import-numpy)          | ⭐️⭐️        |
+| ✅ [Mojo import Python Local Module](packages/mojo-import/import-py/import-local-py) | ⭐️⭐️️       |
 
 ## Awesome Mojo:
 

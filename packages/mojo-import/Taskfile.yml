@@ -1,0 +1,19 @@
+version: "3"
+
+includes:
+  mojo-import-pkg:
+    aliases: [ 'ip', ]
+    taskfile: mojo-import-pkg/
+    dir: mojo-import-pkg/
+    optional: true
+
+
+
+
+
+################################################################################################
+
+tasks:
+  default:
+    cmds:
+      - echo 'hello'

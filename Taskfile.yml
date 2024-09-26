@@ -16,6 +16,14 @@ includes:
     dir: packages/mojo-ffi
     optional: true
 
+
+  import:
+    aliases: [ 'import', ]
+    taskfile: packages/mojo-import
+    dir: packages/mojo-import
+    optional: true
+
+
   try:
     aliases: [ 't', ]
     taskfile: packages/try
