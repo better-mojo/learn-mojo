@@ -1,0 +1,19 @@
+version: "3"
+
+################################################################################################
+
+tasks:
+  fmt:
+    cmds:
+      - magic run mojo format -l 120 .
+
+  r:
+    aliases: [ 'run', ]
+    cmds:
+      - |
+        magic run mojo run src/main.mojo
+
+  pkg:
+    aliases: [ 'pm', 'magic' ]
+    cmds:
+      - magic {{.CLI_ARGS}}

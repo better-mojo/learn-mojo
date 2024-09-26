@@ -1,6 +1,12 @@
 version: "3"
 
 includes:
+  try-matplotlib:
+    aliases: [ 'tm', ]
+    taskfile: try-matplotlib/
+    dir: try-matplotlib/
+    optional: true
+
   try-lightbug:
     aliases: [ 'tl', ]
     taskfile: try-lightbug/
