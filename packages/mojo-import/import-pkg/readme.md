@@ -31,3 +31,10 @@ magic run mojo package mypack -o src/mypack.mojopkg
 ## 参考:
 
 - https://docs.modular.com/mojo/manual/packages#mojo-packages
+
+> 常识:
+
+- [关于 __init__.mojo](https://docs.modular.com/mojo/manual/packages#the-__init__-file)
+- `__init__mojo` 文件, 会将一个目录, 变成一个 `mojo package`.
+- 也就是说: 一个 `mojo package`, 必须包含 `__init__.mojo` 文件.
+- 这个规则, 和 python `__init__.py` 文件是一致的.
