@@ -13,6 +13,14 @@ learn mojo
 | ✅ [mojo dojo 教程代码](./packages/mojo101/mojodojo) | ⭐️⭐️⭐️⭐️    |
 | ✅ [官方文档 + 代码](packages/mojo101/official)        | ⭐️⭐️⭐️      |
 
+### 🔥 Mojo Std Library
+
+- mojo 标准库学习 & 示例代码.
+
+| Project                           | Description |
+|:----------------------------------|:------------|
+| ✅ [mojo std](./packages/mojo-std) | ⭐️⭐️⭐️⭐️    |
+
 ### 🔥 Mojo FFI
 
 - Mojo 通过 `FFI` binding `C/Rust` 库, 复用 `C/Rust` 生态.
