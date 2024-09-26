@@ -7,4 +7,5 @@ struct MyPair:
         self.second = second
 
     fn dump(self):
-        print(self.first, self.second)
+        print("first: ", self.first, " second: ", self.second)
+

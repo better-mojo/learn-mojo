@@ -12,6 +12,18 @@ tasks:
     cmds:
       - magic run mojo src/main.mojo
 
+  build:pkg:
+    aliases: [ 'bp' ]
+    cmds:
+      - magic run mojo package mypack -o src/mypack.mojopkg
+
+  run:pkg:
+    aliases: [ 'rp' ]
+    cmds:
+      - task: bp
+      - magic run mojo src/main.mojo
+
+
 
   run:mojo:
     aliases: [ 'rm' ]

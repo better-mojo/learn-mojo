@@ -1,15 +1,11 @@
 version: "3"
 
 includes:
-  mojo-import-pkg:
-    aliases: [ 'ip', ]
-    taskfile: mojo-import-pkg/
-    dir: mojo-import-pkg/
+  import-pkg:
+    aliases: [ 'ip', 'pkg' ]
+    taskfile: import-pkg/
+    dir: import-pkg/
     optional: true
-
-
-
-
 
 ################################################################################################
 

@@ -251,3 +251,4 @@ tmp/
 *.egg-info
 # magic environments
 .magic
+*.mojopkg
