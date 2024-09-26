@@ -13,6 +13,13 @@ tasks:
       - |
         magic run mojo run src/main.mojo
 
+  build:run:
+    aliases: [ 'br' ]
+    cmds:
+      - mkdir -p build/
+      - magic run mojo build src/main.mojo -o build/main
+      - ./build/main
+
   pkg:
     aliases: [ 'pm', 'magic' ]
     cmds:
