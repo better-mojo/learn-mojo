@@ -7,31 +7,62 @@ tasks:
     cmds:
       - magic run mojo format -l 120 .
 
-  build:c:
-    aliases: [ 'bc', ]
+
+  ################################################################################################
+
+  # 编译 c 动态库
+  build:c:dynamic:
+    aliases: [ 'bc', "bcd" ]
     cmds:
       - mkdir -p build/
       - cc -shared -fPIC src/clib.c -o build/clib.so
       - cc -c src/clib.c -O -o build/clib.o
     ignore_error: true
 
-  build:
-    aliases: [ 'b' ]
+  # 编译 + 运行 c 动态库
+  build:run:dynamic:
+    aliases: [ 'brd' ]
     cmds:
-      - task: bc # build c lib first
+      - task: bcd
+      - magic run mojo build src/main.mojo -o build/mainDynamic
+      - ./build/mainDynamic
+
+  # 运行 c 动态库
+  run:dynamic:
+    aliases: [ 'r', 'rd' ]
+    cmds:
+      - task: bcd
       - magic run mojo src/main.mojo
 
+  ################################################################################################
+
+  # 编译 c 静态库
   build:c:static:
     aliases: [ 'bcs' ]
     cmds:
       - mkdir -p build/
       - gcc -static -c src/clib.c -o build/libclib.a
 
-  build:static:
-    aliases: [ 'bs' ]
+  # TODO X: 目前有报错, 似乎 mojoc 去掉后, 不支持编译静态库
+  # 编译 + 运行 c 静态库
+  build:run:static:
+    aliases: [ 'brs' ]
     cmds:
       - task: bcs
-      - magic run mojo src/main.mojo -S build/libclib.a
+      - magic run mojo build src/main2.mojo -I build/libclib.a -o build/mainStatic
+      - ./build/mainStatic
+
+  #
+  # TODO X: 目前有报错, 似乎 mojoc 去掉后, 不支持编译静态库
+  #
+  # 运行 c 静态库
+  run:static:
+    aliases: [ 'rs' ]
+    cmds:
+      - task: bcs
+      - magic run mojo src/main2.mojo -I build/libclib.a
+
+  ################################################################################################
 
   clean:
     aliases: [ 'cl', 'del' ]

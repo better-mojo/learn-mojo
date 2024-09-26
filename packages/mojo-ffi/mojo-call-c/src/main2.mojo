@@ -8,5 +8,5 @@ def main():
     #
     # TODO X: 静态库使用方式: build/libclib.a
     #
-    external_call["array_max", Float64](list.data, len(list))
+    print(external_call["array_max", Float64](list.data, len(list)))
 

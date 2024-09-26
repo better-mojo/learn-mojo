@@ -10,19 +10,29 @@
 ```ruby
 
 # cd repo-root-dir/
-task ffi:mc:b
 
+# 编译+运行: 
+task ffi:mc:brd
+
+# 运行:
+task ffi:mc:rd    
 ```
 
 ### 🔥Mojo call C 静态库
 
 - ✅ 使用 Mojo 调用 C 静态库(`build/libclib.a`)的方法.
 - ✅ [main2.mojo](./src/main2.mojo)
+- ❎ 当前似乎编译选项不支持静态库.
 
 ```ruby
 
 # cd repo-root-dir/
-task ffi:mc:bc
+
+# 编译+运行: 
+task ffi:mc:brs
+
+# 运行:
+task ffi:mc:rs   
   
 ``` 
 
