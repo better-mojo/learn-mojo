@@ -5,7 +5,7 @@ version: "3"
 #
 includes:
   mojo:
-    aliases: [ 'm101', ]
+    aliases: [ 'm101', 'm']
     taskfile: packages/mojo-101
     dir: packages/mojo-101
     optional: true

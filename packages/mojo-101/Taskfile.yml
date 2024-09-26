@@ -1,9 +1,10 @@
 version: "3"
 
 includes:
-  cm:
-    taskfile: community/
-    dir: community/
+  manual:
+    aliases: [ 'm', ]
+    taskfile: manual/
+    dir: manual/
     optional: true
 
   dojo:
@@ -11,39 +12,9 @@ includes:
     dir: mojodojo/
     optional: true
 
-
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
-
-# global env:
-env:
-  ENV1: testing
-
-# env file:
-#dotenv:
-#  - .env
-
 ################################################################################################
 
 tasks:
   default:
     cmds:
       - echo 'hello'
-
-  install:
-    cmds:
-      - mojo install.mojo
-    dir: install
-
-  t1:
-    cmds:
-      - mojo t1_pyobj.mojo
-    dir: official
-
-  t2:
-    cmds:
-      - mojo t2_mojo.mojo
-    dir: official
