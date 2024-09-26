@@ -21,6 +21,18 @@ tasks:
       - task: bc # build c lib first
       - magic run mojo src/main.mojo
 
+  build:c:static:
+    aliases: [ 'bcs' ]
+    cmds:
+      - mkdir -p build/
+      - gcc -static -c src/clib.c -o build/libclib.a
+
+  build:static:
+    aliases: [ 'bs' ]
+    cmds:
+      - task: bcs
+      - magic run mojo src/main.mojo -S build/libclib.a
+
   clean:
     aliases: [ 'cl', 'del' ]
     cmds:

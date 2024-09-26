@@ -6,7 +6,7 @@ from collections import List
 
 def main():
     #
-    # load the shared library
+    # TODO X: 动态库使用方式 load the shared library
     #
     h = ffi.DLHandle("build/clib.so")
 
