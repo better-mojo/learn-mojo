@@ -1,0 +1,14 @@
+[project]
+authors = ["hhglory <hhglory@outlook.com>"]
+channels = ["conda-forge", "https://conda.modular.com/max"]
+description = "Add a short description here"
+name = "try-matplotlib"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+max = ">=24.5.0,<25"
+matplotlib = ">=3.9.2,<4"
+numpy = ">=1.26.4,<2"
