@@ -3,10 +3,6 @@ version: "3"
 ################################################################################################
 
 tasks:
-  default:
-    cmds:
-      - echo 'hello'
-
   fmt:
     cmds:
       - magic run mojo format -l 120 .
@@ -40,19 +36,6 @@ tasks:
       - gcc build/main.o -o build/main -L rustlib/target/debug -l rustlib   # 注意相对路径
       - ./build/main
     ignore_error: true
-
-  dev:
-    aliases: [ 'd', ]
-    cmds:
-      - magic run mojo src/run.mojo
-
-  r:
-    aliases: [ 'run', ]
-    cmds:
-      - |
-        mojo run run.mojo
-    dir: "src/"
-
 
   pkg:
     aliases: [ 'pm', 'magic' ]
