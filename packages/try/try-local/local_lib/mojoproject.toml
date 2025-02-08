@@ -5,6 +5,8 @@ description = "Add a short description here"
 name = "local_lib"
 platforms = ["osx-arm64"]
 version = "0.1.0"
+packages = ["src/lib"]
+
 
 [tasks]
 
