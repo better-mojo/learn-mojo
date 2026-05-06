@@ -1,0 +1,216 @@
+{
+  "editor.formatOnSave": true,
+  // python 配置
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff", // 默认使用 Ruff 格式化
+    "editor.formatOnSave": true, // 保存时自动格式化
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit", // 保存时自动修复可修复的 lint 错误
+      "source.organizeImports.ruff": "explicit" // 保存时自动排序 import 语句
+    }
+  },
+  // "isort.args": ["--profile", "ruff"],
+  "notebook.formatOnSave.enabled": true,
+  "notebook.diff.overviewRuler": true,
+  "notebook.consolidatedRunButton": true,
+  "dbcode.connections": [
+    {
+      "connectionId": "ccGhCgCcO7YUxlzugel9Z",
+      "name": "redis.local",
+      "driver": "redis",
+      "connectionType": "host",
+      "host": "127.0.0.1",
+      "port": 6379,
+      "ssl": false,
+      "username": "default",
+      "savePassword": "secretStorage",
+      "readOnly": false,
+      "connectionTimeout": 30
+    },
+    {
+      "connectionId": "-VBIQejqpIAPwBUQKerm0",
+      "name": "pg",
+      "driver": "postgres",
+      "color": "#FFC54F",
+      "connectionType": "host",
+      "host": "127.0.0.1",
+      "port": 15432,
+      "ssl": false,
+      "username": "postgres",
+      "password": "",
+      "savePassword": "secretStorage",
+      "database": "hotel",
+      "readOnly": false,
+      "connectionTimeout": 30
+    }
+  ],
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "files.associations": {
+    "editor.snippetSuggestions": "top",
+    "*.html": "django-html",
+    "*.tpl": "django-html"
+  },
+  "[django-html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "Codegeex.CompletionDelay": 1,
+  "Codegeex.GenerationPreference": "automatic",
+  "marscode.chatLanguage": "cn",
+  //
+  // TODO X: 更改 vscode 侧边栏字体大小!!!
+  //  change vscode sidebar font size
+  //  对应插件: Custom CSS and JS Loader
+  //
+  "vscode_custom_css.imports": [
+    "file://${userHome}/.config/vscode-styles.css"
+    // "file:///Users/dev/.config/.config/vscode-styles.css",
+    // "file://./.vscode/vscode.css", // 不支持相对路径
+    // "file://${cwd}/.vscode/vscode.css", // 不支持相对路径
+    // "file://${execPath}/.vscode/vscode.css", // 不支持相对路径
+  ],
+  //
+  // 隐藏文件+文件夹
+  //
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/.idea": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    // "**/.venv": true,
+    "**/build": true,
+    "**/target": true
+  },
+  // 搜索排除
+  "search.exclude": {
+    "**/.git": true,
+    "**/.venv": true, // python
+    "**/.mypy_cache": true, // python
+    "**/.pytest_cache": true, // python
+    "**/__pycache__": true, // python
+    "**/node_modules": true, // node
+    "**/build": true,
+    "**/dist": true,
+    "**/dist-tsc": true,
+    "**/out": true,
+    "**/out-tsc": true,
+    "**/target": true // rust
+  },
+  // 搜索结果排除
+  "explorer.autoRevealExclude": {
+    "**/.mypy_cache": true,
+    // "**/.venv": true,
+    "**/node_modules": true,
+    "**/pytest_cache": true
+  },
+  //
+  // TODO X: 文件监控, 关键忽略!!!
+  //
+  "files.watcherExclude": {
+    "**/.venv": true, // python
+    "**/.mypy_cache": true, // python
+    "**/.pytest_cache": true, // python
+    "**/__pycache__": true, // python
+    "**/build": true,
+    "**/node_modules": true, // node
+    "**/out": true,
+    "**/dist": true,
+    "**/tmp": true,
+    "**/target": true // rust
+  },
+  "Codegeex.CommitMessageStyle": "ConventionalCommits",
+  "Codegeex.SidebarUI.LanguagePreference": "中文",
+  "Codegeex.CommitMessage.LanguagePreference": "中文",
+  "Codegeex.Chat.fontSize": 12,
+  "terminal.integrated.fontSize": 9,
+  "workbench.tree.indent": 12,
+  "explorer.compactFolders": false,
+  //
+  // TODO X: for vue
+  //
+  "editor.formatOnType": true,
+  // "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.guides.bracketPairs": "active",
+  "files.autoSave": "afterDelay",
+  "git.confirmSync": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "css.lint.propertyIgnoredDueToDisplay": "ignore",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  // "files.associations": {
+  //   "editor.snippetSuggestions": "top"
+  // },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "i18n-ally.localesPaths": "locales",
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.namespace": true,
+  "i18n-ally.enabledParsers": [
+    "yaml",
+    "js"
+  ],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ],
+  "iconify.excludes": [
+    "el"
+  ],
+  "vscodeCustomCodeColor.highlightValue": [
+    "v-loading",
+    "v-auth",
+    "v-copy",
+    "v-longpress",
+    "v-optimize",
+    "v-perms",
+    "v-ripple"
+  ],
+  "vscodeCustomCodeColor.highlightValueColor": "#b392f0",
+  //
+  // ref：
+  //  - https://github.com/microsoft/pylance-release/blob/main/docs/settings/python_analysis_languageServerMode.md
+  //  - https://github.com/microsoft/pylance-release/issues/3809#issuecomment-1372536327
+  //
+  "python.analysis.languageServerMode": "light",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportOptionalMemberAccess": "information",
+    "reportFunctionMemberAccess": "information",
+    "reportIncompatibleMethodOverride": "information",
+    "reportAttributeAccessIssue": "information",
+    "reportArgumentType": "warning",
+    "reportReturnType": "information",
+    "reportInvalidTypeForm": "warning",
+    "reportOptionalIterable": "warning",
+    "reportCallIssue": "warning",
+    "reportIndexIssue": "information",
+    "reportAssignmentType": "information"
+  },
+  "python.analysis.autoImportCompletions": true,
+  // "python.analysis.typeCheckingMode": "strict",
+  // "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.typeCheckingMode": "basic",
+  // "python.analysis.importFormat": "absolute",
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.autoSearchPaths": true,
+}

@@ -252,3 +252,6 @@ tmp/
 # magic environments
 .magic
 *.mojopkg
+# pixi environments
+.pixi/*
+!.pixi/config.toml

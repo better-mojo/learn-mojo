@@ -1,0 +1,36 @@
+[workspace]
+authors = ["hhglory <hhglory@outlook.com>"]
+channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+name = "learn-mojo"
+# platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
+version = "0.1.0"
+
+
+[dependencies]
+mojo = ">=1.0.0b2.dev2026050406,<2"
+python = ">=3.14.4,<3.15"
+
+
+[pypi-dependencies]
+pygame-ce = ">=2.5.6,<3"
+
+
+#
+# usage:
+#   - pixi run lifev1
+#
+[tasks]
+format = "mojo format ./src"
+
+lifev1 = "mojo run src/life/lifev1.mojo"
+lifev2 = "mojo run src/life/lifev2.mojo"
+lifev3 = "mojo run src/life/lifev3.mojo"
+
+main = "mojo run src/life/benchmark.mojo"
+benchmark = "mojo run src/life/benchmark.mojo"
+
+test_gridv1 = "mojo run -I . test/test_gridv1.mojo"
+test_gridv2 = "mojo run -I . test/test_gridv2.mojo"
+test_gridv3 = "mojo run -I . test/test_gridv3.mojo"
+test = { depends-on = ["test_gridv1", "test_gridv2", "test_gridv3"] }

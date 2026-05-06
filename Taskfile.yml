@@ -5,29 +5,28 @@ version: "3"
 #
 includes:
   mojo:
-    aliases: [ 'm101', 'm']
+    aliases: [ "m101", "m" ]
     taskfile: packages/mojo-101
     dir: packages/mojo-101
     optional: true
 
   ffi:
-    aliases: [ 'ffi', ]
+    aliases: [ "ffi" ]
     taskfile: packages/mojo-ffi
     dir: packages/mojo-ffi
     optional: true
 
   import:
-    aliases: [ 'im', ]
+    aliases: [ "im" ]
     taskfile: packages/mojo-import
     dir: packages/mojo-import
     optional: true
 
   try:
-    aliases: [ 't', ]
+    aliases: [ "t" ]
     taskfile: packages/try
     dir: packages/try
     optional: true
-
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
@@ -56,43 +55,47 @@ tasks:
       - task: install
       - task: install:pkg
 
-
   setup:
     cmds:
       - echo "setup"
       - task: install
 
   install:
-    aliases: [ 'i' ]
+    aliases: [ "i" ]
     cmds:
       - task: install:magic
 
+  install:tools:
+    aliases: [ "i:t" ]
+    cmds:
+      - npx skills add modular/skills
+
   install:magic:
-    aliases: [ 'ipm', 'ipkg' ]
+    aliases: [ "ipm", "ipkg" ]
     cmds:
-      - curl -ssL https://magic.modular.com/70e02269-abfd-4ed6-aac8-fc2b7d61b954 | bash
+      - curl -ssL https://magic.modular.com/70e02269-abfd-4ed6-aac8-fc2b7d61b954
+        | bash
 
-  # activate mojo venv:
-  venv:
+  run:
+    aliases: [ "r" ]
     cmds:
-      - magic shell
-
+      - pixi run mojo hello.mojo
+    dir: src/
 
   fmt:
     cmds:
       - magic run mojo format -l 120
 
-
   ################################################################################
 
-
   new:
-    aliases: [ 'n' ]
+    aliases: [ "n" ]
     cmds:
-      - magic init {{.CLI_ARGS}} --format mojoproject
-    dir: 'packages/try'
-
-
+      - |
+        pixi init {{.CLI_ARGS}} \
+          -c https://conda.modular.com/max-nightly/ -c conda-forge \
+          && cd {{.CLI_ARGS}} \
+          pixi add mojo
 
   ################################################################################
 
@@ -100,17 +103,18 @@ tasks:
     cmds:
       - tokei # 代码统计: https://github.com/XAMPPRocky/tokei
 
-
-
-
-
-  ##################################################################################################
-
   quick:
-    aliases: [ 'q' ]
+    aliases: [ "q" ]
     cmds:
       - task: cc
       - task: push
+
+  # usage: task rc -- 2
+  rc:
+    aliases: [ "reset:commit" ]
+    cmds:
+      - git reset --soft HEAD~{{.CLI_ARGS}}
+      - task: c
 
   cc:
     cmds:
@@ -118,10 +122,21 @@ tasks:
       - task: commit
 
   commit:
-    aliases: [ 'c' ]
+    aliases: [ "c" ]
     cmds:
       - git add .
-      - git commit -m "update"
+      - git status
+      - |
+        git commit -m 'chore: 💪 update' --no-verify
+    ignore_error: true
+
+  commit:ai:
+    aliases: [ "c:ai" ]
+    cmds:
+      - git add .
+      - git status
+      - |
+        git commit -m 'chore: 🤖 update' --no-verify
     ignore_error: true
 
   pull:
@@ -132,4 +147,5 @@ tasks:
   push:
     cmds:
       - git push origin main --tags
-      - repo_url=`git remote -v | grep push | awk -F ":" '{print $2}' | awk -F ".git" '{print "https://github.com/"$1}'`; open $repo_url
+      - repo_url=`git remote -v | grep push | awk -F ":" '{print $2}' | awk -F
+        ".git" '{print "https://github.com/"$1}'`; open $repo_url

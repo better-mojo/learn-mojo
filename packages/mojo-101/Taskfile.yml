@@ -2,9 +2,15 @@ version: "3"
 
 includes:
   manual:
-    aliases: [ 'm', ]
+    aliases: [ "m" ]
     taskfile: manual/
     dir: manual/
+    optional: true
+
+  hello:
+    aliases: [ "hw" ]
+    taskfile: hello-world/
+    dir: hello-world/
     optional: true
 
   dojo:
